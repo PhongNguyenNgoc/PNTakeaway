@@ -1,0 +1,56 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("../img/account/backround.jpg");
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form{
+    width: 30%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 75px;
+}
+
+.btn-primary{
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    background-color: green;
+}
+.form-control{
+    color:rgba(0, 0, 0, 87);
+    border-bottom-color: rgba(0, 0, 0, 42);
+    box-shadow: none !important;
+    border:none;
+    border-bottom:1px solid;
+    border-radius: 4px 4px 0 0;
+
+}
+h4{
+    font-size: 2rem !important;
+    font-weight: 700;
+}
+.form-label{
+    font-weight: 800;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+a:hover{
+    color: green;
+}
+
+@media only screen and (max-width:600px){
+    form{
+        width: 100% !important;
+    }
+    
+}
