@@ -136,6 +136,25 @@ body{
     padding: 2rem;
     border-radius: 10px;
  }
+
+ .card--notificationS{
+    
+   background: rgb(116, 255, 143);
+   padding: 2rem;
+   border-radius: 10px;
+   font-weight: bold;
+   color: green;
+   display: none;
+}
+.card--notificationF{
+    
+   background: rgb(248, 157, 30);
+   padding: 2rem;
+   border-radius: 10px;
+   font-weight: bold;
+   color: red;
+   /* display: none; */
+}
  .card--wrapper{
     display: flex;
     flex-wrap:wrap;
