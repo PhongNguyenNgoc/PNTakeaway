@@ -84,8 +84,8 @@ if (isset($_POST['Submit'])) {
             <label for="exampleInputEmail1" class="form-label">Loại tài khoản</label>
             <select class="form-select" aria-label="Default select example" name="AType">
 
-                <option value="0">Admin</option>
-                <option value="1">Khách hàng</option>
+                <option value="1">Admin</option>
+                <option value="0">Khách hàng</option>
             </select>
             <br>
             <input type="submit" value="Thêm" name="Submit" class="btn btn-primary">

@@ -1,9 +1,9 @@
 <?php
 include('./callback/menu.php');
 
-$id = $_GET['id'];
+$unGet = $_GET['un'];
 
-$sql = "SELECT * FROM tai_khoan WHERE ID_TK=$id";
+$sql = "SELECT * FROM tai_khoan WHERE TENNGUOIDUNG='$unGet'";
 $res = mysqli_query($conn, $sql);
 
 if ($res == true) {
@@ -36,14 +36,14 @@ if (isset($_POST['Submit'])) {
     if (isset($_POST['AType'])) {
         $at1 = $_POST['AType'];
     }
-    $un1 = $_POST['UserName'];
+
     $pw1 = $_POST['Password'];
     $fn1 = $_POST['FullName'];
     $p1 = $_POST['Phone'];
     $m1 = $_POST['Email'];
     $addr1 = $_POST['Address'];
 
-    $sql1 = "UPDATE tai_khoan SET TENNGUOIDUNG='$un1', MATKHAU='$pw1',QUYEN=$at1,HOVATEN='$fn1',SDT='$p1',EMAIL='$m1',DIACHI='$addr1' WHERE ID_TK=$id ";
+    $sql1 = "UPDATE tai_khoan SET MATKHAU='$pw1',QUYEN=$at1,HOVATEN='$fn1',SDT='$p1',EMAIL='$m1',DIACHI='$addr1' WHERE TENNGUOIDUNG='$unGet' ";
     $res1 = mysqli_query($conn, $sql1);
 
     if ($res1 == true) {
@@ -89,7 +89,7 @@ if (isset($_POST['Submit'])) {
         <form method="post">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Tên người dùng</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="UserName" value="<?php echo $un; ?>">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="UserName" value="<?php echo $un; ?>" disabled>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
@@ -116,8 +116,8 @@ if (isset($_POST['Submit'])) {
             <label for="exampleInputEmail1" class="form-label">Loại tài khoản</label>
             <select class="form-select" aria-label="Default select example" name="AType">
 
-                <option value="0" <?php if ($per == 0) echo "selected"; ?>>Admin</option>
-                <option value="1" <?php if ($per == 1) echo "selected"; ?>>Khách hàng</option>
+                <option value="1" <?php if ($per == 1) echo "selected"; ?>>Admin</option>
+                <option value="0" <?php if ($per == 0) echo "selected"; ?>>Khách hàng</option>
             </select>
             <br>
             <input type="submit" value="Cập nhật" name="Submit" class="btn btn-primary">

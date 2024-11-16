@@ -2,10 +2,10 @@
 //0. include contrain.php
 include("./conn/constants.php");
 //1. Lay id admin de xoa
-$id = $_GET['id'];
+$un = $_GET['un'];
 //2.1 truy van sql de xoa
 
-$sql = "DELETE FROM tai_khoan WHERE ID_TK=$id";
+$sql = "DELETE FROM tai_khoan WHERE TENNGUOIDUNG='$un'";
 
 //2.2  thuc thi lanh sql de xoa
 $res = mysqli_query($conn, $sql);

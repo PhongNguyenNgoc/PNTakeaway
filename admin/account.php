@@ -80,7 +80,7 @@ include('./callback/menu.php');
                     </tr>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM tai_khoan WHERE QUYEN=1";
+                    $sql = "SELECT * FROM tai_khoan WHERE QUYEN=0";
                     $res = mysqli_query($conn, $sql);
 
                     if ($res == true) {
@@ -88,7 +88,7 @@ include('./callback/menu.php');
 
                         if ($count > 0) {
                             while ($rows = mysqli_fetch_assoc($res)) {
-                                $id = $rows['ID_TK'];
+                                //  $id = $rows['ID_TK'];
                                 $un = $rows['TENNGUOIDUNG'];
 
                                 $fn = $rows['HOVATEN'];
@@ -104,9 +104,9 @@ include('./callback/menu.php');
                                     <td><?php echo $addr; ?></td>
 
                                     <td>
-                                        <a href="<?php echo SITEURL; ?>admin/update-account.php?id=<?php echo $id; ?>"><i class="fa-solid fa-wrench"></i></a>
-
-                                        <a href="<?php echo SITEURL; ?>admin/delete-account.php?id=<?php echo $id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="<?php echo SITEURL; ?>admin/update-account.php?un=<?php echo $un; ?>"><i class="fa-solid fa-wrench"></i></a>
+                                        &emsp;
+                                        <a href="<?php echo SITEURL; ?>admin/delete-account.php?un=<?php echo $un; ?>"><i class="fa-solid fa-trash-can"></i></a>
                                     </td>
                                 </tr><?php
                                     }
