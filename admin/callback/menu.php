@@ -1,4 +1,5 @@
-<?php include("/xampp/htdocs/PNTakeaway/admin/conn/constants.php"); ?>
+<?php include("/xampp/htdocs/PNTakeaway/admin/conn/constants.php");
+include("/xampp/htdocs/PNTakeaway/admin/callback/chk-permission.php") ?>
 
 <head>
     <meta charset="UTF-8">
@@ -44,7 +45,7 @@
                     </a>
                 </li>
                 <li class="logout">
-                    <a href="">
+                    <a href="./logout.php">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span>Đăng xuất</span>
                     </a>
