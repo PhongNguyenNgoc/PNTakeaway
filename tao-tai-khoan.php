@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $m = $_POST['Email'];
     $addr = $_POST['Address'];
     $un = $_POST['UserName'];
-    $pass = $_POST['PassWord'];
+    $pass = md5($_POST['PassWord']);
 
     //echo $fn . $p . $m . $addr . $un . $pass;
 

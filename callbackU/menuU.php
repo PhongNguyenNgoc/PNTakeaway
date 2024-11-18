@@ -66,7 +66,8 @@ if (isset($_COOKIE['remember_token'])) {
                                 <?php echo  $_SESSION['user_id']; ?>
                             </a>
                             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-center" href="#" style="color:white;">Cài đặt Tài Khoản</a></li>
+                                <li><a class="dropdown-item text-center" href="cap-nhat-tai-khoan.php" style="color:white;">Cập Nhật Tài Khoản</a></li>
+                                <li><a class="dropdown-item text-center" href="doi-mat-khau.php" style="color:white;">Đổi mật khẩu</a></li>
                                 <li><a class="dropdown-item text-center" href="#" style="color:white;">Quản Lý Đơn Hàng</a></li>
                                 <li><a class="dropdown-item text-center" href="#" style="color:white;">Quản Lý Giỏ Hàng</a></li>
                                 <li>

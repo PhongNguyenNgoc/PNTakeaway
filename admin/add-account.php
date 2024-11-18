@@ -5,7 +5,7 @@ if (isset($_POST['Submit'])) {
         $at = $_POST['AType'];
     }
     $un = $_POST['UserName'];
-    $pw = $_POST['Password'];
+    $pw = md5($_POST['Password']);
     $fn = $_POST['FullName'];
     $p = $_POST['Phone'];
     $m = $_POST['Email'];

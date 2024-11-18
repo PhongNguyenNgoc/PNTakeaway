@@ -4,7 +4,7 @@ include('./admin/conn/constants.php');
 if (isset($_POST['submit'])) {
 
     $username = mysqli_real_escape_string($conn, $_POST['UserName']);
-    $password = mysqli_real_escape_string($conn, $_POST['PassWord']);
+    $password = md5($_POST['PassWord']);
     $rememberMe = isset($_POST['RememberMe']);
 
 

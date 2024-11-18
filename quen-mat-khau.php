@@ -3,8 +3,8 @@ include('./admin/conn/constants.php');
 
 if (isset($_POST['submit'])) {
     $s = $_POST['s'];
-    $np = $_POST['NPassWord'];
-    $rp = $_POST['RePassWord'];
+    $np = md5($_POST['NPassWord']);
+    $rp = md5($_POST['RePassWord']);
 
     if ($np == $rp) {
         $sql = "SELECT * FROM tai_khoan WHERE TENNGUOIDUNG='$s' AND QUYEN=0";

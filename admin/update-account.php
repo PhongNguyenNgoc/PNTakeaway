@@ -15,7 +15,7 @@ if ($res == true) {
         $rows = mysqli_fetch_assoc($res);
 
         $un = $rows['TENNGUOIDUNG'];
-        $pass = $rows['MATKHAU'];
+
         $per = $rows['QUYEN'];
         $fn = $rows['HOVATEN'];
         $p = $rows['SDT'];
@@ -37,7 +37,7 @@ if (isset($_POST['Submit'])) {
         $at1 = $_POST['AType'];
     }
 
-    $pw1 = $_POST['Password'];
+    $pw1 = md5($_POST['Password']);
     $fn1 = $_POST['FullName'];
     $p1 = $_POST['Phone'];
     $m1 = $_POST['Email'];
@@ -93,7 +93,7 @@ if (isset($_POST['Submit'])) {
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="Password" value="<?php echo $pass; ?>">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="Password" value="">
             </div>
 
             <div class="mb-3">
