@@ -27,7 +27,7 @@ include("/xampp/htdocs/PNTakeaway/admin/callback/chk-permission.php") ?>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="food-type.php">
                         <i class="fa-solid fa-quote-left"></i>
                         <span>Loại thức ăn</span>
                     </a>
