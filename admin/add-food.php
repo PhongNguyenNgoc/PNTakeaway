@@ -14,7 +14,7 @@ if (isset($_POST['Submit'])) {
         $image_name = "ThucAn_" . rand(0, 9999) . '.' . $ext;
 
         $source_path = $_FILES['image']['tmp_name'];
-        $destination_path = "../img/food" . $image_name;
+        $destination_path = "../img/food/" . $image_name;
         $upload = move_uploaded_file($source_path, $destination_path);
 
         if ($upload == false) {
