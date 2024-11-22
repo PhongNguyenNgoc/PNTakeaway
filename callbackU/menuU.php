@@ -51,11 +51,7 @@ if (isset($_COOKIE['remember_token'])) {
                         <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Món ăn</a>
-                    </li>
-
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Tìm kiếm</a>
+                        <a class="nav-link" href="mon-an.php">Món ăn</a>
                     </li>
 
                     <li class="nav-item me-3">
