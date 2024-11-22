@@ -15,7 +15,7 @@ include("/xampp/htdocs/PNTakeaway/admin/callback/chk-permission.php") ?>
         <div class="logo">
             <ul class="menu">
                 <li>
-                    <a href="dashboard.php">
+                    <a href="index.php">
                         <i class="fa fa-tachometer-alt"></i>
                         <span>Tổng quan</span>
                     </a>

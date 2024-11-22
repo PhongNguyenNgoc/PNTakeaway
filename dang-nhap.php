@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
                 }
                 //Dang nhap thanh cong
                 if ($_SESSION['role'] == 1) {
-                    header("location:" . SITEURL . 'admin/dashboard.php');
+                    header("location:" . SITEURL . 'admin/index.php');
                 } else {
                     header("location:" . SITEURL . 'index.php');
                 }
