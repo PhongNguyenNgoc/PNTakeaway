@@ -32,6 +32,7 @@ if (isset($_COOKIE['remember_token'])) {
     <link rel="stylesheet" href="./css/style.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/2109c0989e.js" crossorigin="anonymous"></script>
     <title>Phong Nguyễn Takeaway</title>
 </head>
 
@@ -44,20 +45,25 @@ if (isset($_COOKIE['remember_token'])) {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse show" id="navbarDark">
+            <div class="collapse navbar-collapse hide" id="navbarDark">
                 <ul class="navbar-nav me-auto mb-2 mb-xl-0 fs-5 ms-auto p-2 text-center">
                     <li class="nav-item me-3">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Về chúng tôi</a>
-                    </li>
-                    <li class="nav-item me-3"></li>
-                    <a class="nav-link" href="#">Món ăn</a>
+                        <a class="nav-link" href="#">Món ăn</a>
                     </li>
 
-                    <br>
-                    <!---->
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">Tìm kiếm</a>
+                    </li>
+
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">Giỏ hàng</a>
+                    </li>
+
+
+
 
                     <?php
                     if (isset($_SESSION['user_id'])) {
@@ -69,7 +75,7 @@ if (isset($_COOKIE['remember_token'])) {
                                 <li><a class="dropdown-item text-center" href="cap-nhat-tai-khoan.php" style="color:white;">Cập Nhật Tài Khoản</a></li>
                                 <li><a class="dropdown-item text-center" href="doi-mat-khau.php" style="color:white;">Đổi mật khẩu</a></li>
                                 <li><a class="dropdown-item text-center" href="#" style="color:white;">Quản Lý Đơn Hàng</a></li>
-                                <li><a class="dropdown-item text-center" href="#" style="color:white;">Quản Lý Giỏ Hàng</a></li>
+
                                 <li>
                                     <hr class="dropdown-divider" style="color:white;">
                                 </li>

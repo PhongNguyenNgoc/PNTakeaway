@@ -6,6 +6,8 @@
 }
 body{
     background: #e4e9f7;
+
+    
 }
 /* form cap nhat tai khoan KH */
 .box{
@@ -60,4 +62,46 @@ body{
     opacity: 0.82;
 }
 
-/* asas */
+/* Trang chu */
+
+
+
+.background {
+    background-image: url('../img/user/v.png'); /* Đường dẫn đến ảnh nền */
+    background-size: cover; /* Ảnh bao phủ toàn màn hình */
+    background-repeat: no-repeat; /* Không lặp ảnh */
+    background-position: center; /* Căn giữa ảnh */
+    height: 100vh; /* Chiều cao bằng 100% màn hình */
+    display: flex; /* Kích hoạt chế độ flexbox */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+}
+
+
+.content {
+    text-align: center; /* Căn giữa chữ */
+    color: white; /* Màu chữ trắng */
+    background: rgba(0, 0, 0, 0.5); /* Nền trong suốt để tăng độ tương phản */
+    padding: 20px;
+    border-radius: 10px; /* Bo góc cho khối nội dung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ */
+}
+
+h1 {
+    font-size: 3rem; /* Kích thước chữ tiêu đề */
+    margin: 0 0 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+p {
+    font-size: 1.2rem; /* Kích thước chữ đoạn văn */
+    margin: 0;
+}
+
+.btn-home{
+    height: 50px;
+    width: 120px;
+}
+.btn a{
+    text-decoration: none;
+    color: white;
+}

@@ -2,7 +2,17 @@
 include('./callbackU/menuU.php');
 
 ?>
-<p>aaaaaaaaaaaaa</p>
+
+
+<div class="background">
+    <div class="content">
+        <h1>Chào mừng đến với Phong Nguyễn Takeaway</h1>
+        <p>Nơi sẽ cung cấp cho bạn những món ăn nóng hổi nhanh chóng và vệ sinh nhưng tiện lợi</p>
+        <br>
+        <button class="btn btn-home"><a href="">Đặt món ngay!</a></button>
+    </div>
+</div>
+
 
 
 
