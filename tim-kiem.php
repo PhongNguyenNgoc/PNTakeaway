@@ -6,7 +6,7 @@ include('./callbackU/menuU.php');
 <section class="food-search text-center">
     <div class="container">
 
-        <h2>Kết quả cho "<a href="#" class="text-white"><?php echo $_POST['timKiem']; ?></a>"</h2>
+        <h2>Kết quả cho "<a href="#" class="text-white"><?php echo $_GET['timKiem']; ?></a>"</h2>
 
     </div>
 </section>
@@ -16,7 +16,7 @@ include('./callbackU/menuU.php');
     <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
 
         <?php
-        $txt = $_POST['timKiem'];
+        $txt = $_GET['timKiem'];
         $sql = "SELECT MA.* FROM MON_AN MA JOIN LOAI_MON_AN LMA ON MA.ID_LOAIMONAN = LMA.ID_LOAIMONAN WHERE LMA.TENLOAI LIKE ('%$txt%') OR MA.TENMONAN LIKE ('%$txt%')";
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);

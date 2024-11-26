@@ -55,7 +55,7 @@ if (isset($_COOKIE['remember_token'])) {
                     </li>
 
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Giỏ hàng</a>
+                        <a class="nav-link" href="gio-hang.php">Giỏ hàng</a>
                     </li>
 
 

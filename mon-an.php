@@ -6,7 +6,7 @@ include('./callbackU/menuU.php');
 <section class="food-search text-center">
     <div class="container">
 
-        <form action="<?php echo SITEURL ?>tim-kiem.php" method="POST">
+        <form action="<?php echo SITEURL ?>tim-kiem.php" method="get">
             <input type="search" name="timKiem" placeholder="Tìm kiếm món ăn cụ thể" required>
             <button type="submit" class="btn btn-primary">Tìm kiếm</button>
         </form>
