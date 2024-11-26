@@ -55,15 +55,18 @@ include('./callbackU/menuU.php');
 
 <script>
     function addToCart(idMonAn) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "<?php echo SITEURL; ?>loadU/them-gio-hang.php?idMon=" + idMonAn, true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                alert('Đã thêm món vào giỏ hàng!');
-                // Cập nhật giỏ hàng ở giao diện nếu cần
-            }
-        };
-        xhr.send();
+        var user = <?php echo json_encode($_SESSION['user_id']); ?>;
+        if (user != "") {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "<?php echo SITEURL; ?>loadU/them-gio-hang.php?idMon=" + idMonAn, true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Đã thêm món vào giỏ hàng!');
+                    // Cập nhật giỏ hàng ở giao diện nếu cần
+                }
+            };
+            xhr.send();
+        }
     }
 </script>
 
