@@ -40,7 +40,7 @@ include('./callbackU/menuU.php');
                             </div>
                             <div class="d-flex justify-content-around mb-5">
                                 <h5><?php echo $p; ?> đ</h5>
-                                <button class="btn btn-primary"><a href="#">Thêm vào giỏ hàng</a></button>
+                                <button class="btn btn-primary" onclick="addToCart(<?php echo $idF; ?>)">Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                     </div><?php
@@ -53,7 +53,19 @@ include('./callbackU/menuU.php');
     </div>
 </div>
 
-
+<script>
+    function addToCart(idMonAn) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "<?php echo SITEURL; ?>loadU/them-gio-hang.php?idMon=" + idMonAn, true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Đã thêm món vào giỏ hàng!');
+                // Cập nhật giỏ hàng ở giao diện nếu cần
+            }
+        };
+        xhr.send();
+    }
+</script>
 
 
 
