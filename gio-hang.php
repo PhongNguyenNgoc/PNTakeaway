@@ -39,8 +39,9 @@ $total = 0; // Khởi tạo tổng giá trị giỏ hàng
 
                             <th>Giá</th>
                             <th>Tổng</th>
-                            <th>Sửa Số lượng</th>
-                            <th>Hành động</th>
+
+                            <th>Chỉnh sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,7 +73,7 @@ $total = 0; // Khởi tạo tổng giá trị giỏ hàng
 
                 <!-- Nút thanh toán -->
                 <div>
-                    <button class="btn"><a href="checkout.php">Tiến hành thanh toán</a></button>
+                    <button class="btn"><a href="thanh-toan.php">Tiến hành thanh toán</a></button>
                     <button type="submit" class="btn">Cập nhật số lượng</button>
                 </div>
             </form>
