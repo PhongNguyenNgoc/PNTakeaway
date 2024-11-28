@@ -27,7 +27,7 @@ $total = 0; // Khởi tạo tổng giá trị giỏ hàng
 
 ?>
 
-<div class="container py5">
+<div class="container py-5">
     <div class="box">
         <?php if (count($items) > 0): ?>
             <form action="loadU/cap-nhat-gio-hang.php" method="POST">

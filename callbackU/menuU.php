@@ -70,7 +70,7 @@ if (isset($_COOKIE['remember_token'])) {
                             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-center" href="cap-nhat-tai-khoan.php" style="color:white;">Cập Nhật Tài Khoản</a></li>
                                 <li><a class="dropdown-item text-center" href="doi-mat-khau.php" style="color:white;">Đổi mật khẩu</a></li>
-                                <li><a class="dropdown-item text-center" href="#" style="color:white;">Quản Lý Đơn Hàng</a></li>
+                                <li><a class="dropdown-item text-center" href="quan-ly-don-hang.php" style="color:white;">Quản Lý Đơn Hàng</a></li>
 
                                 <li>
                                     <hr class="dropdown-divider" style="color:white;">

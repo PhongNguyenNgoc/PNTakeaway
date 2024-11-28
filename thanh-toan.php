@@ -33,7 +33,7 @@ foreach ($items as $item) {
 ?>
 
 
-<div class="container py5">
+<div class="container py-5">
     <div class="box">
         <h3 class="text-center">Xem lại đơn hàng</h3>
         <br>
