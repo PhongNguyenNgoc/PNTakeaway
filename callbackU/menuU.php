@@ -41,7 +41,7 @@ if (isset($_COOKIE['remember_token'])) {
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
         <div class="container">
 
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><img src="<?php echo SITEURL . "/img/logo.png" ?>" alt="" srcset="" width="150" height="75"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -38,8 +38,8 @@ include("/xampp/htdocs/PNTakeaway/admin/callback/chk-permission.php") ?>
                         <span>Thức ăn</span>
                     </a>
                 </li>
-                <li class="logout">
-                    <a href="">
+                <li>
+                    <a href="manage-order.php">
                         <i class="fa-brands fa-first-order-alt"></i>
                         <span>Đơn hàng</span>
                     </a>
