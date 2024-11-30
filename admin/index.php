@@ -1,5 +1,29 @@
 <?php
 include('./callback/menu.php');
+
+$sqlTongTN = "SELECT SUM(ct.SOLUONG * ma.GIATIEN) AS TONG_THU_NHAP FROM CHI_TIET_DON_HANG ct JOIN MON_AN ma ON ct.ID_MONAN = ma.ID_MONAN;";
+$resTongTN = mysqli_query($conn, $sqlTongTN);
+$rowTongTN = mysqli_fetch_assoc($resTongTN);
+$tongTN = $rowTongTN['TONG_THU_NHAP'];
+
+$sqlTongM = "SELECT COUNT(*) AS SO_LUONG_MON_AN FROM MON_AN;";
+$resTongM = mysqli_query($conn, $sqlTongM);
+$rowTongM = mysqli_fetch_assoc($resTongM);
+$tongM = $rowTongM['SO_LUONG_MON_AN'];
+
+$sqlTongK = "SELECT COUNT(*) AS SO_LUONG_KHACH_HANG FROM TAI_KHOAN WHERE QUYEN=0;";
+$resTongK = mysqli_query($conn, $sqlTongK);
+$rowTongK = mysqli_fetch_assoc($resTongK);
+$tongK = $rowTongK['SO_LUONG_KHACH_HANG'];
+
+$sqlTongD = "SELECT COUNT(*) AS DON_DA_GIAO FROM DON_HANG WHERE TRANGTHAI=3;";
+$resTongD = mysqli_query($conn, $sqlTongD);
+$rowTongD = mysqli_fetch_assoc($resTongD);
+$tongD = $rowTongD['DON_DA_GIAO'];
+
+
+
+
 ?>
 <!--Phan chinh-->
 <div class="main--content">
@@ -8,24 +32,26 @@ include('./callback/menu.php');
 
             <h2>Tổng Quan</h2>
         </div>
-        <div class="user--info">
+        <!-- <div class="user--info">
 
             <img src="../img/admin/admin.jpg" alt="">
-        </div>
+        </div> -->
     </div>
 
     <!--The-->
     <div class="card--container">
-        <h3 class="main--title">Today data</h3>
+
 
         <div class="card--wrapper">
             <div class="payment--card light-red">
                 <div class="card--header">
                     <div class="amount">
-                        <span class="title">Payment Amount</span>
-                        <span class="amount--value">100.00đ</span>
+                        <span class="title">Tổng thu nhập</span>
+                        <span class="amount--value"><?php echo number_format($tongTN); ?>đ</span>
                     </div>
+
                     <i class="fas fa-dollar-sign icon"></i>
+
                 </div>
 
             </div>
@@ -33,10 +59,10 @@ include('./callback/menu.php');
             <div class="payment--card light-purple">
                 <div class="card--header">
                     <div class="amount">
-                        <span class="title">Payment Order</span>
-                        <span class="amount--value">100.00đ</span>
+                        <span class="title">Số món ăn</span>
+                        <span class="amount--value"><?php echo $tongM; ?></span>
                     </div>
-                    <i class="fas fa-list icon dark-purple"></i>
+                    <i class="fas fa-solid fa-bowl-food icon"></i>
                 </div>
 
             </div>
@@ -44,8 +70,8 @@ include('./callback/menu.php');
             <div class="payment--card light-green">
                 <div class="card--header">
                     <div class="amount">
-                        <span class="title">Payment Amount</span>
-                        <span class="amount--value">100.00đ</span>
+                        <span class="title">Số khách hàng</span>
+                        <span class="amount--value"><?php echo $tongK; ?></span>
                     </div>
                     <i class="fas fa-users icon dark-green"></i>
                 </div>
@@ -55,8 +81,8 @@ include('./callback/menu.php');
             <div class="payment--card light-blue">
                 <div class="card--header">
                     <div class="amount">
-                        <span class="title">Payment Process</span>
-                        <span class="amount--value">100.00đ</span>
+                        <span class="title">Số đơn hàng giao thành công</span>
+                        <span class="amount--value"><?php echo $tongD; ?></span>
                     </div>
                     <i class="fas fa-solid fa-check icon dark-blue"></i>
                 </div>
@@ -64,44 +90,9 @@ include('./callback/menu.php');
         </div>
 
     </div>
-    <!--Bang-->
 
-    <div class="tabular--wrapper">
-        <h3 class="main--title">Finance Data</h3>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ngày</th>
-                        <th>Loại thanh toán</th>
-                        <th>Chi tiết</th>
-                        <th>Số lượng</th>
-                        <th>Loại</th>
-                        <th>Chủng loại</th>
-                        <th>Trạng thái</th>
-                        <th>Hành động</th>
-                    </tr>
-                <tbody>
-                    <tr>
-                        <td>2024</td>
-                        <td>VISA **** **** **** 2457</td>
-                        <td>Hàng tồn kho</td>
-                        <td>100</td>
-                        <td>Giày</td>
-                        <td>Mới 99%</td>
-                        <td>2024</td>
-                        <td><button>DElete</button></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="8">Tổng giá trị: ****đ</td>
-                    </tr>
-                </tfoot>
-                </thead>
-            </table>
-        </div>
-    </div>
+
+
 
 
 </div>

@@ -110,7 +110,7 @@ if (isset($_GET['order_id'])) {
         echo "&emsp;";
         echo "<a href='" . SITEURL . "admin/auth-address.php?address=$diaChi'><i class='fa-solid fa-location-dot'></i></a>";
         echo "&emsp;";
-        echo "<a href='" . SITEURL . "admin/auth-address.php?address=$diaChi'><i class='fas fa-print'></i></a>";
+        echo "<a href='" . SITEURL . "admin/export-bill.php?order_id=$idDonDat'><i class='fas fa-print'></i></a>";
 
         echo "</td>";
         echo "</tr>";
