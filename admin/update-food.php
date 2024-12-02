@@ -40,10 +40,15 @@ if ($res1 == true) {
 <?php
 if (isset($_POST['Submit'])) {
     //Xoa anh cũ
-    $pathO = "../img/food/" . $anhO;
-    $remove = unlink($pathO);
+    // $pathO = "../img/food/" . $anhO;
+    // $remove = unlink($pathO);
 
-    if (isset($_FILES['image']['name'])) {
+    if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
+
+        $pathO = "../img/food/" . $anhO;
+        if (file_exists($pathO)) {
+            unlink($pathO);
+        }
         $image_name = $_FILES['image']['name'];
 
         //lay duoi file
@@ -59,9 +64,10 @@ if (isset($_POST['Submit'])) {
 
         if ($upload == false) {
             echo "Tai anh that bai!";
+            $image_name = $anhO;
         }
     } else {
-        $image_name = "";
+        $image_name = $anhO;;
     }
 
     $foodName = $_POST['NameF'];
