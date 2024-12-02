@@ -19,7 +19,7 @@ include('./callbackU/menuU.php');
     <div class="row row-cols-1 row-cols-md-4 g-4 py-5">
 
         <?php
-        $sql = "SELECT * FROM mon_an WHERE TRANGTHAI=1";
+        $sql = "SELECT MON_AN.*, LOAI_MON_AN.TENLOAI FROM MON_AN JOIN LOAI_MON_AN ON MON_AN.ID_LOAIMONAN = LOAI_MON_AN.ID_LOAIMONAN WHERE MON_AN.TRANGTHAI = 1";
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
         if ($count > 0) {
@@ -30,16 +30,19 @@ include('./callbackU/menuU.php');
                 $p = $row['GIATIEN'];
                 $detailF = $row['CHITIETMONAN'];
                 $img = $row['ANH'];
+                $type = $row['TENLOAI'];
 
         ?> <div class="col">
                     <div class="card" style="width: 18rem;">
                         <img src="<?php echo SITEURL . "img/food/" . $img; ?>" class="card-img-top" alt="..." width="250" height="250">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $nF; ?></h5>
+                            <p>Loại: <?php echo $type; ?> </p>
                             <p class="card-text"><?php echo $detailF; ?></p>
+
                         </div>
                         <div class="d-flex justify-content-around mb-5">
-                            <h5><?php echo $p; ?> đ</h5>
+                            <h5><?php echo number_format($p); ?> đ</h5>
                             <button class="btn btn-primary" onclick="addToCart(<?php echo $idF; ?>)">Thêm vào giỏ hàng</button>
                         </div>
                     </div>

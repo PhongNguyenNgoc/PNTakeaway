@@ -17,7 +17,7 @@ include('./callbackU/menuU.php');
 
         <?php
         $txt = $_GET['timKiem'];
-        $sql = "SELECT MA.* FROM MON_AN MA JOIN LOAI_MON_AN LMA ON MA.ID_LOAIMONAN = LMA.ID_LOAIMONAN WHERE LMA.TENLOAI LIKE ('%$txt%') OR MA.TENMONAN LIKE ('%$txt%')";
+        $sql = "SELECT MA.* ,LMA.TENLOAI FROM MON_AN MA JOIN LOAI_MON_AN LMA ON MA.ID_LOAIMONAN = LMA.ID_LOAIMONAN WHERE LMA.TENLOAI LIKE ('%$txt%') OR MA.TENMONAN LIKE ('%$txt%')";
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
 
@@ -30,16 +30,18 @@ include('./callbackU/menuU.php');
                     $p = $row['GIATIEN'];
                     $detailF = $row['CHITIETMONAN'];
                     $img = $row['ANH'];
+                    $type = $row['TENLOAI'];
 
         ?> <div class="col">
                         <div class="card" style="width: 18rem;">
                             <img src="<?php echo SITEURL . "img/food/" . $img; ?>" class="card-img-top" alt="..." width="250" height="250">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $nF; ?></h5>
+                                <p>Loại: <?php echo $type; ?> </p>
                                 <p class="card-text"><?php echo $detailF; ?></p>
                             </div>
                             <div class="d-flex justify-content-around mb-5">
-                                <h5><?php echo $p; ?> đ</h5>
+                                <h5><?php echo number_format($p); ?> đ</h5>
                                 <button class="btn btn-primary" onclick="addToCart(<?php echo $idF; ?>)">Thêm vào giỏ hàng</button>
                             </div>
                         </div>
