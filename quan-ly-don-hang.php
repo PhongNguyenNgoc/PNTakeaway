@@ -27,7 +27,7 @@ $resultDonHang = mysqli_query($conn, $sqlDonHang);
                        JOIN MON_AN ma ON ct.ID_MONAN = ma.ID_MONAN
                        WHERE ct.ID_DONDAT = $idDonHang";
             $resultChiTiet = mysqli_query($conn, $sqlChiTiet);
-            $tongThanhToan = 0;
+            $tongThanhToan = 15000;
 
             echo "<table class='table table-hover'>";
             echo "<thead><tr><th>Ảnh</th><th>Tên món ăn</th><th>Số lượng</th><th>Giá tiền</th><th>Thành tiền</th></tr></thead>";
@@ -41,15 +41,21 @@ $resultDonHang = mysqli_query($conn, $sqlDonHang);
                 echo "<td><img src='" . SITEURL . "/img/food/" . $img . "' width='75' height='75'></td>";
                 echo "<td>$tenMonAn</td>";
                 echo "<td>$soLuong</td>";
-                echo "<td>" . number_format($giaTien) . " VNĐ</td>";
-                echo "<td>" . number_format($thanhTien) . " VNĐ</td>";
+                echo "<td>" . number_format($giaTien) . " đ</td>";
+                echo "<td>" . number_format($thanhTien) . " đ</td>";
                 echo "</tr>";
                 $tongThanhToan += $thanhTien;
             }
             echo "<tr>";
-            echo "<td colspan='4'><b>Tổng cần thanh toán:</b></td>";
-            echo "<td><b>" . number_format($tongThanhToan) . "VND</b></td>";
+            echo "<td colspan='4'><b>Phí vận chuyển</b></td>";
+            echo "<td><b>" . number_format(15000) . " đ</b></td>";
             echo "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td colspan='4'><b>Tổng cần thanh toán:</b></td>";
+            echo "<td><b>" . number_format($tongThanhToan) . " đ</b></td>";
+            echo "</td>";
+            echo "</tr>";
             echo "</table>";
             echo "<a href='?'>Quay lại danh sách đơn hàng</a>";
         } else {

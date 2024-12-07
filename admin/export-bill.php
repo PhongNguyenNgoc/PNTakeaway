@@ -125,7 +125,7 @@ if (isset($_GET['order_id'])) {
                 </thead>
                 <tbody>
                     <?php
-                    $tongTien = 0;
+                    $tongTien = 15000;
                     $stt = 1;
                     foreach ($chiTietDonHang as $mon) {
                         $tenMon = $mon['TENMONAN'];
@@ -145,10 +145,10 @@ if (isset($_GET['order_id'])) {
                     }
                     ?>
 
-
                 </tbody>
             </table>
             <footer class="invoice-footer">
+                <p><strong>Phí vận chuyển:</strong> <?php echo number_format(15000); ?>₫</p>
                 <p><strong>Tổng cộng:</strong> <?php echo number_format($tongTien); ?>₫</p>
                 <p>Cảm ơn quý khách và chúc quý khách ngon miệng!</p>
                 <button onclick="window.print()">In hóa đơn</button>

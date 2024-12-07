@@ -29,7 +29,8 @@ $total = 0;
 foreach ($items as $item) {
     $total += $item['GIATIEN'] * $item['SOLUONG'];
 }
-
+//Cong them vi van chuyen
+$total = $total + 15000;
 ?>
 
 
@@ -56,6 +57,11 @@ foreach ($items as $item) {
                             <td><?php echo number_format($item['GIATIEN'] * $item['SOLUONG']); ?> đ</td>
                         </tr>
                     <?php endforeach; ?>
+                    <!--Xem phi van chuyen-->
+                    <tr>
+                        <td colspan="3"><b>Phí vận chuyển</b></td>
+                        <td><b><?php echo number_format(15000); ?> đ</b></td>
+                    </tr>
                 </tbody>
             </table>
 

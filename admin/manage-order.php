@@ -17,7 +17,7 @@ if (isset($_GET['order_id'])) {
                        JOIN MON_AN ma ON ct.ID_MONAN = ma.ID_MONAN
                        WHERE ct.ID_DONDAT = $idDonHang";
     $resultChiTiet = mysqli_query($conn, $sqlChiTiet);
-    $tongGiaTri = 0;
+    $tongGiaTri = 15000;
 
     echo "<div class='main--content'>";
     echo "   <div class='header--wrapper'>";
@@ -45,6 +45,7 @@ if (isset($_GET['order_id'])) {
         echo "<td>" . number_format($thanhTien) . " đ</td>";
         echo "</tr>";
     }
+    echo "<tr><td colspan='2'><b>Phí vận chuyển </b><td><td><b>" . number_format(15000) . " đ</b></td></tr>";
     echo "<tr><td colspan='2'><b>Tổng giá trị đơn hàng </b><td><td><b>" . number_format($tongGiaTri) . " đ</b></td></tr>";
     echo "</table>";
     echo "</div>";
