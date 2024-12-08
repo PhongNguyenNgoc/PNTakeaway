@@ -31,6 +31,47 @@ foreach ($items as $item) {
 }
 //Cong them vi van chuyen
 $total = $total + 15000;
+
+//Truy van thong tin khach hang
+$sql1 = "SELECT * FROM tai_khoan WHERE TENNGUOIDUNG = '$ten_nguoidung'";
+
+$res1 = mysqli_query($conn, $sql1);
+
+if ($res1 == true) {
+
+
+    // Lay thong tin
+    $rows = mysqli_fetch_assoc($res1);
+    $fn0 = $rows['HOVATEN'];
+    $p0 = $rows['SDT'];
+    $addr0 = $rows['DIACHI'];
+}
+
+//Xu ly khi nhan nut Thanh Toan
+if (isset($_POST['submit'])) {
+
+    /////////////////////////////////
+    $fn = $_POST['FullName'];
+    $p = $_POST['Phone'];
+    $addr = $_POST['Address'];
+    $pay = $_POST['paymentMethod'];
+
+
+    $sql2 = "UPDATE tai_khoan SET HOVATEN='$fn',SDT='$p',DIACHI='$addr', THANHTOAN='$pay' WHERE TENNGUOIDUNG='$ten_nguoidung'";
+    $res2 = mysqli_query($conn, $sql2);
+
+    switch ($pay) {
+        case "COD":
+            header("location:" . SITEURL . 'loadU/xu-ly-thanh-toan.php');
+            break;
+        case "Ví Điện Tử":
+            header("location:" . SITEURL . 'loadU/gia-lap-vi-dien-tu.php');
+            break;
+
+        default:
+            echo "Lỗi";
+    }
+}
 ?>
 
 
@@ -38,39 +79,85 @@ $total = $total + 15000;
     <div class="box">
         <h3 class="text-center">Xem lại đơn hàng</h3>
         <br>
-        <form action="loadU/xu-ly-thanh-toan.php" method="POST">
-            <table class="table table-hover">
-                <thead>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tên món ăn</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Tổng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($items as $item): ?>
                     <tr>
-                        <th>Tên món ăn</th>
-                        <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Tổng</th>
+                        <td><?php echo $item['TENMONAN']; ?></td>
+                        <td><?php echo $item['SOLUONG']; ?></td>
+                        <td><?php echo number_format($item['GIATIEN']); ?> đ</td>
+                        <td><?php echo number_format($item['GIATIEN'] * $item['SOLUONG']); ?> đ</td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($items as $item): ?>
-                        <tr>
-                            <td><?php echo $item['TENMONAN']; ?></td>
-                            <td><?php echo $item['SOLUONG']; ?></td>
-                            <td><?php echo number_format($item['GIATIEN']); ?> đ</td>
-                            <td><?php echo number_format($item['GIATIEN'] * $item['SOLUONG']); ?> đ</td>
-                        </tr>
-                    <?php endforeach; ?>
-                    <!--Xem phi van chuyen-->
-                    <tr>
-                        <td colspan="3"><b>Phí vận chuyển</b></td>
-                        <td><b><?php echo number_format(15000); ?> đ</b></td>
-                    </tr>
-                </tbody>
-            </table>
+                <?php endforeach; ?>
+                <!--Xem phi van chuyen-->
+                <tr>
+                    <td colspan="3"><b>Phí vận chuyển</b></td>
+                    <td><b><?php echo number_format(15000); ?> đ</b></td>
+                </tr>
+            </tbody>
+        </table>
 
-            <h4>Tổng cộng: <?php echo number_format($total); ?> đ</h4>
+        <h4>Tổng cộng: <?php echo number_format($total); ?> đ</h4>
 
 
+    </div>
 
-            <button type="submit" class="btn btn-success">Thanh toán</button>
+    <br>
+    <div class="box form-box">
+        <header>Thông tin giao hàng</header>
+
+        <form id="paymentForm" action="" method="post">
+
+            <div class="field input">
+                <label for="username">Họ và Tên</label>
+                <input type="text" name="FullName" id="" value="<?php echo $fn0; ?>">
+            </div>
+            <div class="field input">
+                <label for="username">Số điện thoại</label>
+                <input type="tel" name="Phone" id="" value="<?php echo $p0; ?>">
+            </div>
+
+            <div class="field input">
+                <label for="username">Địa chỉ</label>
+                <input type="text" name="Address" id="" value="<?php echo $addr0; ?>">
+            </div>
+
+
+
+            <div class="field">
+                <label for="username">Phương thức thanh toán</label>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" value="COD" checked>
+                    <label class="form-check-label" for="paymentMethod">
+                        Thanh toán khi nhận hàng
+                    </label>
+                </div>
+
+
+                <div class="form-check">
+                    âsasaasaas
+                    <input class="form-check-input" type="radio" name="paymentMethod" value="Ví Điện Tử">
+                    <label class="form-check-label" for="paymentMethod">
+                        Ví điện tử
+                    </label>
+                </div>
+            </div>
+
+
+            <hr>
+            <button type="submit" class="btn btn-success" id="submitButton" name="submit">Thanh toán</button>
         </form>
+
     </div>
 </div>
 
@@ -78,5 +165,8 @@ $total = $total + 15000;
 
 <!--Chan trang web-->
 <?php
+
 include('./callbackU/footerU.php');
+
+
 ?>
