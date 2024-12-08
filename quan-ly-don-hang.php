@@ -62,12 +62,13 @@ $resultDonHang = mysqli_query($conn, $sqlDonHang);
             // Hiển thị danh sách đơn hàng
             echo "<br>";
             echo "<table class='table table-hover'>";
-            echo "<thead><tr><th>Mã đơn hàng</th><th>Ngày đặt</th><th>Trạng thái</th><th>Thông tin thêm</th><th>Thao tác</th></tr></thead>";
+            echo "<thead><tr><th>Mã đơn hàng</th><th>Thanh toán bằng</th><th>Ngày đặt</th><th>Trạng thái</th><th>Thông tin thêm</th><th>Thao tác</th></tr></thead>";
             while ($rowDonHang = mysqli_fetch_assoc($resultDonHang)) {
                 $idDonHang = $rowDonHang['ID_DONDAT'];
                 $ngayDat = $rowDonHang['NGAYDATHANG'];
                 $trangThai = intval($rowDonHang['TRANGTHAI']);
                 $thongTin = $rowDonHang['CHITIET'];
+                $pttt = $rowDonHang['THANHTOAN'];
                 $kqTT = "";
 
                 if ($trangThai == 0) {
@@ -86,6 +87,7 @@ $resultDonHang = mysqli_query($conn, $sqlDonHang);
 
                 echo "<tr>";
                 echo "<td>$idDonHang</td>";
+                echo "<td>$pttt</td>";
                 echo "<td>$ngayDat</td>";
                 echo "<td>$kqTT</td>";
                 echo "<td>$thongTin</td>";

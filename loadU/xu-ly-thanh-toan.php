@@ -18,10 +18,14 @@ $payM =  $_SESSION['pay'];
 
 
 //Tạo đơn hàng mới
-$date = date('Y-m-d');
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$date = date('Y-m-d H:i:s');
 $sql_order = "INSERT INTO DON_HANG (TENNGUOIDUNG, NGAYDATHANG, TRANGTHAI,THANHTOAN,TONGGTDONHANG) 
               VALUES ('$ten_nguoidung', '$date', 0,'$payM',$totalO)";
 mysqli_query($conn, $sql_order);
+
+unset($_SESSION["tp"]);
+unset($_SESSION["pay"]);
 // Lấy ID đơn hàng mới vừa tạo
 $order_id = mysqli_insert_id($conn);
 

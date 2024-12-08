@@ -1,7 +1,7 @@
 <?php
 include('./callback/menu.php');
 
-$sqlTongTN = "SELECT SUM(ct.SOLUONG * ma.GIATIEN) AS TONG_THU_NHAP FROM CHI_TIET_DON_HANG ct JOIN MON_AN ma ON ct.ID_MONAN = ma.ID_MONAN;";
+$sqlTongTN = "SELECT SUM(TONGGTDONHANG) AS TONG_THU_NHAP FROM DON_HANG ";
 $resTongTN = mysqli_query($conn, $sqlTongTN);
 $rowTongTN = mysqli_fetch_assoc($resTongTN);
 $tongTN = $rowTongTN['TONG_THU_NHAP'];

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     09/12/2024 1:26:39 SA                        */
+/* Created on:     09/12/2024 2:27:11 SA                        */
 /*==============================================================*/
 
 
@@ -35,7 +35,7 @@ create table DON_HANG
 (
    ID_DONDAT            int not null auto_increment,
    TENNGUOIDUNG         char(10),
-   NGAYDATHANG          date not null,
+   NGAYDATHANG          datetime not null,
    TRANGTHAI            int,
    CHITIET              varchar(500),
    THANHTOAN            char(20),
