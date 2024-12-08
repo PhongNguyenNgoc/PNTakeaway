@@ -106,7 +106,7 @@ include('./callback/menu.php');
                                 if ($rows['TRANGTHAI'] == 1) {
                                     $status = "Còn kinh doanh";
                                 } else {
-                                    $status = "Không còn king doanh";
+                                    $status = "Không còn kinh doanh";
                                 }
 
 

@@ -8,23 +8,19 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-if (isset($_SESSION["tp"])) {
-    unset($_SESSION["tp"]);
-}
+
+
 
 
 $ten_nguoidung = $_SESSION['user_id']; // Lấy tên người dùng từ session
+$totalO = $_SESSION["tp"];
+$payM =  $_SESSION['pay'];
 
-//Them phuong thuc thanh toan Chuyen Khoan/COD
-$pay =  $_SESSION['pay'];
-$sql_pay = "UPDATE tai_khoan SET THANHTOAN = '$pay' WHERE TENNGUOIDUNG = '$ten_nguoidung'";
-$res_pay = mysqli_query($conn, $sql_pay);
-unset($_SESSION['pay']);
 
 //Tạo đơn hàng mới
 $date = date('Y-m-d');
-$sql_order = "INSERT INTO DON_HANG (TENNGUOIDUNG, NGAYDATHANG, TRANGTHAI) 
-              VALUES ('$ten_nguoidung', '$date', 0)";
+$sql_order = "INSERT INTO DON_HANG (TENNGUOIDUNG, NGAYDATHANG, TRANGTHAI,THANHTOAN,TONGGTDONHANG) 
+              VALUES ('$ten_nguoidung', '$date', 0,'$payM',$totalO)";
 mysqli_query($conn, $sql_order);
 // Lấy ID đơn hàng mới vừa tạo
 $order_id = mysqli_insert_id($conn);

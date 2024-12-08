@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     27/11/2024 5:22:20 CH                        */
+/* Created on:     09/12/2024 1:26:39 SA                        */
 /*==============================================================*/
 
 
@@ -38,6 +38,8 @@ create table DON_HANG
    NGAYDATHANG          date not null,
    TRANGTHAI            int,
    CHITIET              varchar(500),
+   THANHTOAN            char(20),
+   TONGGTDONHANG        bigint,
    primary key (ID_DONDAT)
 );
 
@@ -90,7 +92,6 @@ create table TAI_KHOAN
    SDT                  char(10) not null,
    EMAIL                varchar(500) not null,
    DIACHI               varchar(500) not null,
-   THANHTOAN            char(20),
    TOKEN                varchar(255),
    primary key (TENNGUOIDUNG)
 );

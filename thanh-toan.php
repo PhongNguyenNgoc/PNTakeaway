@@ -63,6 +63,7 @@ if (isset($_POST['submit'])) {
     switch ($pay) {
         case "COD":
             $_SESSION['pay'] = $pay;
+            $_SESSION["tp"] = $total;
             header("location:" . SITEURL . 'loadU/xu-ly-thanh-toan.php');
             break;
         case "Chuyển Khoản":

@@ -2,7 +2,7 @@
 
 include('./callback/menu.php');
 
-$sqlDonHang = "SELECT DH.*,TK.DIACHI FROM DON_HANG DH JOIN TAI_KHOAN TK ON DH.TENNGUOIDUNG = TK.TENNGUOIDUNG";
+$sqlDonHang = "SELECT DH.*,TK.DIACHI,TK.HOVATEN FROM DON_HANG DH JOIN TAI_KHOAN TK ON DH.TENNGUOIDUNG = TK.TENNGUOIDUNG";
 $resultDonHang = mysqli_query($conn, $sqlDonHang);
 
 
@@ -65,14 +65,16 @@ if (isset($_GET['order_id'])) {
     echo "<div class='tabular--wrapper'>";
     echo "<div class='table-container'>";
     echo "<table>";
-    echo "<thead><tr><th>Mã đơn hàng</th><th>Người dùng</th><th>Ngày đặt</th><th>Trạng thái</th><th>Thông tin thêm</th><th>Hành động</th></tr></thead>";
+    echo "<thead><tr><th>Mã đơn hàng</th><th>Tên Khách Hàng</th><th>Ngày đặt</th><th>Trạng thái</th><th>GT Đơn</th><th>Thanh toán</th><th>Thông tin thêm</th><th>Hành động</th></tr></thead>";
     while ($rowDonHang = mysqli_fetch_assoc($resultDonHang)) {
         $idDonDat = $rowDonHang['ID_DONDAT'];
-        $tenNguoiDung = $rowDonHang['TENNGUOIDUNG'];
+        $hovaten = $rowDonHang['HOVATEN'];
         $ngayDat = $rowDonHang['NGAYDATHANG'];
         $trangThai = intval($rowDonHang['TRANGTHAI']);
         $chiTiet = $rowDonHang['CHITIET'];
         $diaChi = $rowDonHang['DIACHI'];
+        $tongGT = $rowDonHang['TONGGTDONHANG'];
+        $pttt = $rowDonHang['THANHTOAN'];
 
         if ($trangThai == 0) {
             $kqTT = "Đã nhận đơn";
@@ -89,10 +91,12 @@ if (isset($_GET['order_id'])) {
         }
         echo "<tr>";
         echo "<td>$idDonDat</td>";
-        echo "<td>$tenNguoiDung</td>";
+        echo "<td>$hovaten</td>";
         echo "<td>$ngayDat</td>";
         echo "<td>$kqTT</td>";
-        echo "<td>$chiTiet</td>";
+        echo "<td>" . number_format($tongGT) . "đ</td>";
+        echo "<td>$pttt</td>";
+        echo "<td style='text-overflow: ellipsis; max-width: 150px; overflow: hidden'>$chiTiet</td>";
         // echo "<td>
         //     <a href='?order_id=$idDonDat'>Xem chi tiết</a>
         //     <form method='POST' class='action-form'>

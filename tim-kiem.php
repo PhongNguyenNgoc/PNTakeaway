@@ -17,7 +17,7 @@ include('./callbackU/menuU.php');
 
         <?php
         $txt = $_GET['timKiem'];
-        $sql = "SELECT MA.* ,LMA.TENLOAI FROM MON_AN MA JOIN LOAI_MON_AN LMA ON MA.ID_LOAIMONAN = LMA.ID_LOAIMONAN WHERE LMA.TENLOAI LIKE ('%$txt%') OR MA.TENMONAN LIKE ('%$txt%')";
+        $sql = "SELECT MA.* ,LMA.TENLOAI FROM MON_AN MA JOIN LOAI_MON_AN LMA ON MA.ID_LOAIMONAN = LMA.ID_LOAIMONAN WHERE LMA.TENLOAI LIKE ('%$txt%') OR MA.TENMONAN LIKE ('%$txt%') AND MA.TRANGTHAI=1";
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
 

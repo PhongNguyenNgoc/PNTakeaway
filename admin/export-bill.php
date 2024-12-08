@@ -7,7 +7,7 @@ if (isset($_GET['order_id'])) {
     $idDonHang = intval($_GET['order_id']);
 
     // Lấy thông tin đơn hàng
-    $sqlDonHang = "SELECT dh.ID_DONDAT, dh.NGAYDATHANG, dh.TRANGTHAI, tk.HOVATEN, tk.SDT, tk.DIACHI
+    $sqlDonHang = "SELECT dh.ID_DONDAT, dh.NGAYDATHANG, dh.TRANGTHAI, tk.HOVATEN, tk.SDT, tk.DIACHI,dh.THANHTOAN
                    FROM DON_HANG dh
                    JOIN TAI_KHOAN tk ON dh.TENNGUOIDUNG = tk.TENNGUOIDUNG
                    WHERE dh.ID_DONDAT = $idDonHang";
@@ -111,6 +111,7 @@ if (isset($_GET['order_id'])) {
                 <p><strong>Số điện thoại:</strong> <?php echo $hoaDon['SDT']; ?></p>
                 <p><strong>Địa chỉ giao:</strong> <?php echo $hoaDon['DIACHI']; ?></p>
                 <p><strong>Ngày đặt:</strong> <?php echo $hoaDon['NGAYDATHANG']; ?></p>
+                <p><strong>Thanh toán:</strong> <?php echo $hoaDon['THANHTOAN']; ?></p>
                 <p><strong>Số hóa đơn:</strong> <?php echo $hoaDon['ID_DONDAT']; ?></p>
             </section>
             <table class="invoice-table">
