@@ -89,7 +89,7 @@ if (isset($_POST['Submit'])) {
                 <label for="detail">Thông tin thêm cho khách hàng</label>
                 <br>
                 <br>
-                <textarea name="detail" id="" cols="140" rows="10" required style=" border: 2px solid black;"></textarea>
+                <textarea name="detail" id="" cols="140" rows="10" style=" border: 2px solid black;"></textarea>
             </div>
 
 

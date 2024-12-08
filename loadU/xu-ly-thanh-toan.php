@@ -8,7 +8,18 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+if (isset($_SESSION["tp"])) {
+    unset($_SESSION["tp"]);
+}
+
+
 $ten_nguoidung = $_SESSION['user_id']; // Lấy tên người dùng từ session
+
+//Them phuong thuc thanh toan Chuyen Khoan/COD
+$pay =  $_SESSION['pay'];
+$sql_pay = "UPDATE tai_khoan SET THANHTOAN = '$pay' WHERE TENNGUOIDUNG = '$ten_nguoidung'";
+$res_pay = mysqli_query($conn, $sql_pay);
+unset($_SESSION['pay']);
 
 //Tạo đơn hàng mới
 $date = date('Y-m-d');

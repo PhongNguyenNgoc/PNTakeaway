@@ -93,7 +93,7 @@ $resultDonHang = mysqli_query($conn, $sqlDonHang);
                 if ($trangThai == 0) {
                     echo "<td><button class='btn'><a href='?order_id=$idDonHang'>Xem chi tiết</a></button> &nbsp;<button class='btn'><a href='huy-don-hang.php?order_id=$idDonHang'>Hủy đơn hàng</a></button></td>";
                 } else {
-                    echo "<td><button class='btn'><a href='?order_id=$idDonHang'>Xem chi tiết</a></button> &nbsp;<button class='btn' disabled><a href='?order_id=$idDonHang'>Hủy đơn hàng</a></button></td>";
+                    echo "<td><button class='btn'><a href='?order_id=$idDonHang'>Xem chi tiết</a></button></td>";
                 }
 
 

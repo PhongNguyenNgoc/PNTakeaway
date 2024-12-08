@@ -57,15 +57,18 @@ if (isset($_POST['submit'])) {
     $pay = $_POST['paymentMethod'];
 
 
-    $sql2 = "UPDATE tai_khoan SET HOVATEN='$fn',SDT='$p',DIACHI='$addr', THANHTOAN='$pay' WHERE TENNGUOIDUNG='$ten_nguoidung'";
+    $sql2 = "UPDATE tai_khoan SET HOVATEN='$fn',SDT='$p',DIACHI='$addr' WHERE TENNGUOIDUNG='$ten_nguoidung'";
     $res2 = mysqli_query($conn, $sql2);
 
     switch ($pay) {
         case "COD":
+            $_SESSION['pay'] = $pay;
             header("location:" . SITEURL . 'loadU/xu-ly-thanh-toan.php');
             break;
-        case "Ví Điện Tử":
-            header("location:" . SITEURL . 'loadU/gia-lap-vi-dien-tu.php');
+        case "Chuyển Khoản":
+            $_SESSION["pay"] = $pay;
+            $_SESSION["tp"] = $total;
+            header("location:" . SITEURL . 'loadU/gia-lap-chuyen-khoan.php');
             break;
 
         default:
@@ -145,10 +148,10 @@ if (isset($_POST['submit'])) {
 
 
                 <div class="form-check">
-                    âsasaasaas
-                    <input class="form-check-input" type="radio" name="paymentMethod" value="Ví Điện Tử">
+
+                    <input class="form-check-input" type="radio" name="paymentMethod" value="Chuyển Khoản">
                     <label class="form-check-label" for="paymentMethod">
-                        Ví điện tử
+                        Chuyển khoản ngân hàng
                     </label>
                 </div>
             </div>

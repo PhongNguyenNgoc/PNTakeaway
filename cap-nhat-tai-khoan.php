@@ -29,9 +29,9 @@ if (isset($_POST['submit'])) {
     $p = $_POST['Phone'];
     $m = $_POST['Email'];
     $addr = $_POST['Address'];
-    $pay = $_POST['paymentMethod'];
 
-    $sql1 = "UPDATE tai_khoan SET HOVATEN='$fn',SDT='$p',EMAIL='$m',DIACHI='$addr', THANHTOAN='$pay' WHERE TENNGUOIDUNG='$un' ";
+
+    $sql1 = "UPDATE tai_khoan SET HOVATEN='$fn',SDT='$p',EMAIL='$m',DIACHI='$addr' WHERE TENNGUOIDUNG='$un' ";
     $res1 = mysqli_query($conn, $sql1);
 
     if ($res1) {
@@ -76,16 +76,6 @@ if (isset($_POST['submit'])) {
 
 
 
-            <div class="field">
-                <label for="username">Phương thức thanh toán</label>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="paymentMethod" value="COD" checked>
-                    <label class="form-check-label" for="paymentMethod">
-                        Thanh toán khi nhận hàng
-                    </label>
-                </div>
-            </div>
 
 
             <hr>
