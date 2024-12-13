@@ -43,8 +43,8 @@
             <div class="col-6 col-lg-3 text-lg-end">
                 <h4 class="pt-3 fw-bold">Theo dõi chúng tôi</h4>
                 <div>
-                    <a href="" class="text-decoration-none text-light"><i class="bi bi-facebook fs-2 me-3"></i></a>
-                    <a href="" class="text-decoration-none text-light"><i class="bi bi-facebook fs-2 me-3"></i></a>
+
+
                     <a href="" class="text-decoration-none text-light"><i class="bi bi-facebook fs-2 "></i></a>
 
                 </div>

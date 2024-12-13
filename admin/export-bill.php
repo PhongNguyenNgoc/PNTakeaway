@@ -152,7 +152,7 @@ if (isset($_GET['order_id'])) {
                 <p><strong>Phí vận chuyển:</strong> <?php echo number_format(15000); ?>₫</p>
                 <p><strong>Tổng cộng:</strong> <?php echo number_format($tongTien); ?>₫</p>
                 <p>Cảm ơn quý khách và chúc quý khách ngon miệng!</p>
-                <button onclick="window.print()">In hóa đơn</button>
+
             </footer><?php
                     } else {
                         echo "Chưa chọn đơn hàng, vui lòng chọn đơn hàng cụ thể";

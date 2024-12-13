@@ -3,7 +3,7 @@ include('./callback/menu.php');
 
 $id = $_GET['order_id'];
 
-$sql = "SELECT * FROM DON_HANG WHERE ID_DONDAT='$id'";
+$sql = "SELECT DON_HANG.*,TAI_KHOAN.HOVATEN FROM DON_HANG JOIN TAI_KHOAN ON DON_HANG.TENNGUOIDUNG = TAI_KHOAN.TENNGUOIDUNG WHERE DON_HANG.ID_DONDAT = '$id';";
 $res = mysqli_query($conn, $sql);
 
 if ($res == true) {
@@ -15,7 +15,7 @@ if ($res == true) {
         $rows = mysqli_fetch_assoc($res);
 
 
-        $userName = $rows['TENNGUOIDUNG'];
+        $fn = $rows['HOVATEN'];
         $date = $rows['NGAYDATHANG'];
         $status = $rows['TRANGTHAI'];
     } else {
@@ -66,11 +66,11 @@ if (isset($_POST['Submit'])) {
     <div class="tabular--wrapper">
         <form method="post">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Tên người dùng đặt món</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nfn" value="<?php echo $userName; ?>" disabled>
+                <label for="exampleInputEmail1" class="form-label">Tên khách hàng</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nfn" value="<?php echo $fn; ?>" disabled>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Ngày đặt</label>
+                <label for="exampleInputEmail1" class="form-label">Thời gian đặt</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nfn" value="<?php echo $date; ?>" disabled>
             </div>
             <div class="mb-3">
