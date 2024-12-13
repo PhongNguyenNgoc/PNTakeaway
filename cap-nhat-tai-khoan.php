@@ -73,6 +73,10 @@ if (isset($_POST['submit'])) {
                 <label for="username">Địa chỉ</label>
                 <input type="text" name="Address" id="" value="<?php echo $addr0; ?>">
             </div>
+            <div class="field input">
+
+                <a href="doi-mat-khau.php">Thay đổi mật khẩu</a>
+            </div>
 
 
 
