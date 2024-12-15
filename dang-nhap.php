@@ -26,13 +26,15 @@ if (isset($_POST['submit'])) {
                 $_SESSION['user_id'] = $username;
                 $_SESSION['role'] = $rows['QUYEN'];
 
-                if ($rememberMe) {
+                if ($rememberMe == 1) {
                     setcookie("remember_token", $token, time() + (60 * 60 * 24 * 30), "/"); //Het han sau 30d
                 }
                 //Dang nhap thanh cong
                 if ($_SESSION['role'] == 1) {
+
                     header("location:" . SITEURL . 'admin/index.php');
                 } else {
+
                     header("location:" . SITEURL . 'index.php');
                 }
             } else {
