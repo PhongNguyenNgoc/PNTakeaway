@@ -97,8 +97,8 @@ if (isset($_POST['submit'])) {
                 <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="PassWord">
 
-                <a href="quen-mat-khau.php">
-                    <div id="emailHelp" class="form-text mt-3">Quên mật khẩu</div>
+                <a href="#">
+                    <div id="emailHelp" class="form-text mt-3" onclick="baoTri()">Quên mật khẩu</div>
                 </a>
                 <br>
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="RememberMe">
@@ -113,3 +113,8 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+<script>
+    function baoTri() {
+        alert('Tính năng đang được bảo trì, vui lòng liên hệ Hotline 0123456789 để được hỗ trợ. Xin cám ơn.');
+    }
+</script>

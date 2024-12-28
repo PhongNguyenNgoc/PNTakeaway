@@ -22,10 +22,10 @@ if (isset($_POST['submit'])) {
                     $_SESSION['ChgPassBUserF'] = "Đổi mật khẩu thất bại!";
                 }
             } else {
-                $_SESSION['ChgPassBUserF'] = "Mật khẩu cũ chưa đúng!";
+                $_SESSION['ChgPassBUserF'] = "ERR 404";
             }
         } else {
-            $_SESSION['ChgPassBUserF'] = "Lỗi CSDL!";
+            $_SESSION['ChgPassBUserF'] = "Mật khẩu cũ chưa đúng. ";
         }
     } else {
         $_SESSION['ChgPassBUserF'] = "2 Mật khẩu mới chưa khớp!";
