@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     $res = mysqli_query($conn, $sql);
 
     if ($res == true) {
-        $_SESSION["addUS"] = " Đăng ký thành";
+        $_SESSION["addUS"] = " Đăng ký thành công";
         header("location:" . SITEURL . 'dang-nhap.php');
     } else {
         $_SESSION["addUE"] = "Tên tài khoản này đã có người sử dụng!";
